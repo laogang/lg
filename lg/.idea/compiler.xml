@@ -7,12 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="lg-api-gateway" />
+        <module name="lg-common" />
         <module name="lg-user" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="lg" target="1.8" />
       <module name="lg-api-gateway" target="1.8" />
+      <module name="lg-common" target="1.8" />
       <module name="lg-user" target="1.8" />
     </bytecodeTargetLevel>
   </component>

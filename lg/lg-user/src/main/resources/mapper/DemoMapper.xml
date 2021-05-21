@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace= "com.ny.lg.user.dao.DemoMapper" >
+
+    <select id="sayHello" resultType="string">
+        SELECT username FROM user ORDER BY id DESC
+    </select>
+
+    <!--CREATE TABLE `user` (-->
+    <!--`id` INT(11) NOT NULL AUTO_INCREMENT,-->
+    <!--`username` VARCHAR(32) NOT NULL,-->
+    <!--`password` VARCHAR(32) DEFAULT NULL,-->
+    <!--PRIMARY KEY (`id`)-->
+    <!--) ENGINE=INNODB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8-->
+</mapper>

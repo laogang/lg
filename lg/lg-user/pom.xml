@@ -8,8 +8,13 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>lg-user</artifactId>
-
+    <dependencies>
+       <dependency>
+           <groupId>com.ny.lg</groupId>
+           <artifactId>lg-common</artifactId>
+           <version>1.0-SNAPSHOT</version>
+       </dependency>
+    </dependencies>
 
 </project>

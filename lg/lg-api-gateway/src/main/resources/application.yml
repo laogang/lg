@@ -1,0 +1,61 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    name: druidDataSource
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8
+      username: root
+      password:
+      filters: stat,wall,log4j2
+      max-active: 100
+      initial-size: 1
+      max-wait: 60000
+      min-idle: 1
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 'x'
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-open-prepared-statements: 50
+      max-pool-prepared-statement-per-connection-size: 20
+  jta:
+    atomikos:
+      properties:
+        default-max-wait-time-on-shutdown:
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  configLocation: classpath:/mybatis-config.xml
+
+management:
+  security:
+    enabled: ${MANAGEMENT_SECURITY_ENABLED:false}
+
+jwt:
+ token:
+   secret: LG-API
+   expiration: 3600
+
+urule:
+  ribbion:
+    listOfServers: localhost:8010,localhost:8011
+
+ACCESS_RULES: http://10086/access_rules
+
+external:
+  url:
+    finalStrategy: ${FINAL_STRATEGY:http://10086/final_strategy}
+    creditReport: ${CREDIT_REPORT:http://10086/final_strategy}
+    accessRules: ${ACCESS_RULES}
+
+swagger:
+  enable: true
+
+logging:
+  config: classpath:logback-spring.xml
