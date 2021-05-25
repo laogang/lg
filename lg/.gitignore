@@ -1,0 +1,12 @@
+/.settings/
+*/bin/
+.classpath
+.settings
+.class
+target/
+.metadata/*
+.project
+*.iml
+.idea/*
+*.bak
+*.log
