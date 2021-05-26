@@ -12,6 +12,7 @@
         <module>lg-api-gateway</module>
         <module>lg-user</module>
         <module>lg-common</module>
+        <module>lg-eureka-server</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -57,6 +58,11 @@
             <version>1.1.10</version>
         </dependency>
         <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.22</version>
+        </dependency>
+        <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.73</version>
@@ -80,11 +86,6 @@
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
             <version>1.9.3</version>
-        </dependency>
-        <dependency>
-            <groupId>com.thoughtworks.xstream</groupId>
-            <artifactId>xstream</artifactId>
-            <version>1.4.3</version>
         </dependency>
     </dependencies>
     <dependencyManagement>

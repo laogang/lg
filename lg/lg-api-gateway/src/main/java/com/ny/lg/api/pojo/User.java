@@ -1,6 +1,7 @@
 package com.ny.lg.api.pojo;
 
-import com.zybank.crq.front.utils.ValidatedUtils;
+
+import com.ny.lg.common.utils.ValidatedUtils;
 
 import javax.validation.constraints.Pattern;
 import java.io.Serializable;

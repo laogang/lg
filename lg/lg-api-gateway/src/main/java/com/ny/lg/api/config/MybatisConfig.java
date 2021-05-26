@@ -4,6 +4,6 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@MapperScan("com.zybank.crq.front.dao")
+@MapperScan("com.ny.lg.api.dao")
 public class MybatisConfig {
 }

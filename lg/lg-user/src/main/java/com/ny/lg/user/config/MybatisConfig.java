@@ -1,9 +1,9 @@
-package com.ny.lg.api.config;
+package com.ny.lg.user.config;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@MapperScan("com.zybank.crq.front.dao")
+@MapperScan("com.ny.lg.user.dao")
 public class MybatisConfig {
 }

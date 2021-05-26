@@ -1,7 +1,14 @@
 server:
   port: 8080
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
 spring:
+  application:
+    name: lg-user
   datasource:
     name: druidDataSource
     type: com.alibaba.druid.pool.DruidDataSource
@@ -32,30 +39,6 @@ spring:
 mybatis:
   mapperLocations: classpath:mapper/*.xml
   configLocation: classpath:/mybatis-config.xml
-
-management:
-  security:
-    enabled: ${MANAGEMENT_SECURITY_ENABLED:false}
-
-jwt:
- token:
-   secret: LG-API
-   expiration: 3600
-
-urule:
-  ribbion:
-    listOfServers: localhost:8010,localhost:8011
-
-ACCESS_RULES: http://10086/access_rules
-
-external:
-  url:
-    finalStrategy: ${FINAL_STRATEGY:http://10086/final_strategy}
-    creditReport: ${CREDIT_REPORT:http://10086/final_strategy}
-    accessRules: ${ACCESS_RULES}
-
-swagger:
-  enable: true
 
 logging:
   config: classpath:logback-spring.xml

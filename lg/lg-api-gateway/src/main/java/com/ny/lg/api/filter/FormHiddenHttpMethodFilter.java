@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Objects;
 
 public class FormHiddenHttpMethodFilter extends HiddenHttpMethodFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
@@ -34,7 +35,7 @@ public class FormHiddenHttpMethodFilter extends HiddenHttpMethodFilter {
 
         public String getHeader(String name) {
             String authorization = JwtTokenUtils.HEADER_STRING;
-            if ((name != null) && (authorization.equals(name)) && (super.getHeader(authorization) == null)) {
+            if (Objects.equals(authorization, name) && (super.getHeader(authorization) == null)) {
                 return this.header;
             }
             return super.getHeader(name);

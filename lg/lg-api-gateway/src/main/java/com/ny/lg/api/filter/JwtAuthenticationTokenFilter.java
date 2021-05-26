@@ -1,8 +1,8 @@
 package com.ny.lg.api.filter;
 
-import com.zybank.crq.front.handler.JwtAuthenticationFailureHandler;
-import com.zybank.crq.front.token.JwtAuthenticationToken;
-import com.zybank.crq.front.utils.JwtTokenUtils;
+import com.ny.lg.api.handler.JwtAuthenticationFailureHandler;
+import com.ny.lg.api.token.JwtAuthenticationToken;
+import com.ny.lg.api.utils.JwtTokenUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,8 +42,7 @@ public class JwtAuthenticationTokenFilter extends AbstractAuthenticationProcessi
         String authHeader = request.getHeader(tokenHeader);
         String tokenHead = JwtTokenUtils.TOKEN_PREFIX;
         if (!StringUtils.isEmpty(authHeader) && authHeader.startsWith(tokenHead)) {
-            //如果header中存在token,则覆盖掉url中的token
-            //"Bearer" 之后的内容
+            //如果header中存在token,则覆盖掉url中的token "Bearer" 之后的内容
             authToken = authHeader.substring(tokenHead.length());
         }
         return getAuthenticationManager().authenticate(new JwtAuthenticationToken(authToken));

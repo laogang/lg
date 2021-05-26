@@ -25,7 +25,13 @@ public class SensitiveDataConverter extends MessageConverter {
         //获取原始日志
         String logMsg = event.getFormattedMessage();
         //获取脱敏后的日志
-        return invokeLogMsg(logMsg);
+        try {
+            return invokeLogMsg(logMsg);
+        } catch (Exception e) {
+            logger.warn("要脱敏的日志内容: {}", logMsg);
+            logger.warn("日志脱敏失败，目前只支持json格式的日志信息脱敏", e);
+        }
+        return "";
     }
 
     private String invokeLogMsg(String logMsg) {

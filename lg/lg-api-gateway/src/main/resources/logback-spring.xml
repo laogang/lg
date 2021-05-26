@@ -49,6 +49,6 @@
     </appender>
     <!-- 控制台输出日志级别 -->
     <root level="info">
-        <appender-ref ref="STDOUT" />
+        <appender-ref ref="CONSOLE" />
     </root>
 </configuration>
