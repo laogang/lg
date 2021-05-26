@@ -1,7 +1,27 @@
 server:
   port: 8380
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+zuul:
+  routes:
+    lg-uesr:
+      path: /user/**
+      serviceId: lg-user
+#    lg-b:
+#      path: /api-b/**
+#      serviceId: service-feign
+
+feign:
+  hystrix:
+    enabled: true
+
 spring:
+  application:
+    name: lg-api-gateway
   datasource:
     name: druidDataSource
     type: com.alibaba.druid.pool.DruidDataSource
@@ -39,7 +59,7 @@ management:
 
 jwt:
  token:
-   secret: LG-API
+   secret: LG-API-GATEWAY
    expiration: 3600
 
 urule:

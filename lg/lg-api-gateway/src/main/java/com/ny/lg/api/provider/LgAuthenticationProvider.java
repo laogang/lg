@@ -1,10 +1,11 @@
 package com.ny.lg.api.provider;
 
 import com.alibaba.fastjson.JSONObject;
+import com.ny.lg.api.client.UserServiceFeignClient;
 import com.ny.lg.api.pojo.Role;
 import com.ny.lg.api.pojo.User;
 import com.ny.lg.api.pojo.UserContext;
-import com.ny.lg.api.service.UserService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -29,16 +30,18 @@ public class LgAuthenticationProvider implements AuthenticationProvider {
     private int expiration;
 
     @Autowired
-    private UserService userService;
+    private UserServiceFeignClient userServiceFeignClient;
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         User user = (User) authentication.getPrincipal();
         userInfoIsNotEmpty(user);
-        UserContext userContext = userService.authenticate(user);
-        if (userContext == null) {
+        user = userServiceFeignClient.authenticate(user);
+        if (user == null) {
             throw new BadCredentialsException("用户名或者密码输入错误，请重新输入!");
         }
+        UserContext userContext = new UserContext();
+        BeanUtils.copyProperties(user, userContext);
         userContext.setSecret(this.secret);
         userContext.setExpiration(this.expiration);
 //        List<Role> roles = userContext.getRoles();
