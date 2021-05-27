@@ -9,7 +9,13 @@ import org.mapstruct.factory.Mappers;
  * @date: 2021/5/27 22:33
  * @description:
  **/
-@Mapper
+//add componentModel = "spring" 整合spring
+//@Autowired
+//    private StuMapper stuMapper;
+//
+//    // 转化
+//    StuDO stuDO = stuMapper.toStu(stuDTO);
+@Mapper(componentModel = "spring")
 public interface StuMapper {
     StuMapper STU_INSTANCE = Mappers.getMapper(StuMapper.class);
 
