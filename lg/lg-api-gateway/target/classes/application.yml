@@ -19,19 +19,6 @@ feign:
   hystrix:
     enabled: true
 
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 3000
-
-ribbon:
-  ConnectionTimeout: 500
-  ReadTimeout: 2000 #500*2+2000两个加起来*2不能超过timeoutInMillisecond
-#  MaxAutoRetriesNextServer: 0 #不重试
-
 spring:
   application:
     name: lg-api-gateway
