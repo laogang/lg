@@ -2,22 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile name="Maven default annotation processors profile" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="lg-api-gateway" />
-        <module name="lg-common" />
-        <module name="lg-eureka-server" />
-        <module name="lg-user" />
-      </profile>
+      <profile default="true" name="Default" enabled="true" />
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="lg" target="1.8" />
-      <module name="lg-api-gateway" target="1.8" />
-      <module name="lg-common" target="1.8" />
-      <module name="lg-eureka-server" target="1.8" />
-      <module name="lg-user" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
