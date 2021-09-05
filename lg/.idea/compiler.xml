@@ -3,6 +3,33 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="lg-gateway" />
+        <module name="lg-common" />
+        <module name="lg-auth" />
+        <module name="lg-eureka-server" />
+        <module name="lg-user" />
+      </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="lg" target="1.8" />
+      <module name="lg-auth" target="1.8" />
+      <module name="lg-common" target="1.8" />
+      <module name="lg-eureka-server" target="1.8" />
+      <module name="lg-gateway" target="1.8" />
+      <module name="lg-user" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="lg-auth" options="-parameters" />
+      <module name="lg-common" options="-parameters" />
+      <module name="lg-eureka-server" options="-parameters" />
+      <module name="lg-gateway" options="-parameters" />
+      <module name="lg-user" options="-parameters" />
+    </option>
   </component>
 </project>

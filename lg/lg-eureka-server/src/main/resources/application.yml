@@ -5,11 +5,14 @@ spring:
 server:
   port: 8761
 
+
 eureka:
   server:
     enableSelfPreservation: false
   instance:
     hostname: localhost
+    prefer-ip-address: true
+    ip-address: ${EUREKA_SERVER_IP:host.docker.internal}
   client:
     registerWithEureka: false
     fetchRegistry: false

@@ -1,0 +1,57 @@
+server:
+  port: 8380
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+
+feign:
+  hystrix:
+    enabled: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000
+
+ribbon:
+  ConnectionTimeout: 500
+  ReadTimeout: 2000 #500*2+2000两个加起来*2不能超过timeoutInMillisecond
+#  MaxAutoRetriesNextServer: 0 #不重试
+
+spring:
+  application:
+    name: lg-auth
+
+
+management:
+  security:
+    enabled: ${MANAGEMENT_SECURITY_ENABLED:false}
+
+jwt:
+ token:
+   secret: LG-API-GATEWAY
+   expiration: 3600
+
+urule:
+  ribbion:
+    listOfServers: localhost:8010,localhost:8011
+
+ACCESS_RULES: http://10086/access_rules
+
+external:
+  url:
+    finalStrategy: ${FINAL_STRATEGY:http://10086/final_strategy}
+    creditReport: ${CREDIT_REPORT:http://10086/final_strategy}
+    accessRules: ${ACCESS_RULES}
+
+swagger:
+  enable: true
+
+logging:
+  config: classpath:logback-spring.xml

@@ -14,7 +14,7 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8
+      url: jdbc:mysql://localhost:3306/lg?useUnicode=true&characterEncoding=UTF-8
       username: root
       password: 123456
       filters: stat,wall,log4j2
@@ -31,10 +31,17 @@ spring:
       pool-prepared-statements: true
       max-open-prepared-statements: 50
       max-pool-prepared-statement-per-connection-size: 20
-  jta:
-    atomikos:
-      properties:
-        default-max-wait-time-on-shutdown:
+  resources:
+    static-locations: classpath:/static/
+  mail:
+    host: smtp.163.com
+    username: 770266906@163.com
+    password: 1234567a
+    smtp:
+      socketFactory:
+        class: javax.net.ssl.SSLSocketFactory
+        fallback: false
+        port: 465
 
 mybatis:
   mapperLocations: classpath:mapper/*.xml
@@ -51,3 +58,6 @@ task:
 scheduled:
   task:
     enabled: ${task.orgNo.meizhou}
+    cron:
+      meizhou: "*/5 * * * * ?"
+

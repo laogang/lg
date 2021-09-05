@@ -29,6 +29,13 @@ public class Result implements Serializable {
     private Result() {
     }
 
+    public static Result success() {
+        Result result = new Result();
+        result.code = HttpStatus.OK.value();
+        result.setSuccess(true);
+        result.setMessage(HttpStatus.OK.getReasonPhrase());
+        return result;
+    }
     /**
      * 方法处理成功后返回的结构封装
      *

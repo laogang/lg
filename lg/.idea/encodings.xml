@@ -2,9 +2,14 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/lg-api-gateway" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lg-auth" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lg-auth/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/lg-common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lg-common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/lg-eureka-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lg-eureka-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lg-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/lg-user" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lg-user/src/main/java" charset="UTF-8" />
   </component>
 </project>

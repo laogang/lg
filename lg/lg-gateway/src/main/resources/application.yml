@@ -1,0 +1,68 @@
+server:
+  port: 8888
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+
+#feign:
+#  hystrix:
+#    enabled: true
+#
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 3000
+#
+#ribbon:
+#  ConnectionTimeout: 500
+#  ReadTimeout: 2000 #500*2+2000两个加起来*2不能超过timeoutInMillisecond
+#  eureka:
+#    enabled: true
+#  MaxAutoRetriesNextServer: 0 #不重试
+
+spring:
+  application:
+    name: lg-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+      routes: #数组
+        - id: lg-user       #我们自定义的路由id，保持唯一
+          uri: lb://lg-user #代表从注册中心获取目标服务地址，且以lb（负载均衡）的方式转发
+          predicates:       #断言，路由条件
+            - Path=/lg-user/**  #表示将以/lg-user/**开头的请求转发到uri为lb://lg-user的地址上
+          filters:
+            - StripPrefix=1
+        - id: lg-auth
+          uri: lb://lg-auth
+          predicates:
+            - Path=/lg-auth/**
+          filters:
+            - StripPrefix=1
+      filters:
+        - name: Hystrix
+          args:
+            name: fallbackcmd
+            fallback-uri: forward:/fallback
+
+
+management:
+  security:
+    enabled: ${MANAGEMENT_SECURITY_ENABLED:false}
+
+urule:
+  ribbion:
+    listOfServers: localhost:8010,localhost:8011
+
+
+logging:
+  config: classpath:logback-spring.xml

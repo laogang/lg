@@ -17,7 +17,8 @@ import java.util.Date;
 @Component
 @ConditionalOnProperty(name = "scheduled.task.enabled", havingValue = ConstantsUtils.MEIZHOU_ORG_NO)
 public class TestShedLockScheduler {
-    @Scheduled(cron = "*/5 * * * * ?")
+
+    @Scheduled(cron = "${scheduled.task.cron.meizhou}")
     @SchedulerLock(name = "testShedLockScheduler", lockAtLeastFor = "2000", lockAtMostFor = "3000")
     public void dataHouseKeeping() {
         System.out.println(String.format("[%s] DataHouseKeeping job run...", new Date()));
